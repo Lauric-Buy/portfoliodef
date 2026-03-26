@@ -1,72 +1,162 @@
-/* =======================
-CSS CYBERSECURITE (styles.css)
-======================= */
+:root {
+    --bg: #0a0f14;
+    --bg2: #0f1720;
+    --accent: #00ffc6;
+    --accent-soft: rgba(0,255,198,0.2);
+    --text: #d1f7ff;
+}
 
 body {
     margin: 0;
-    font-family: "Courier New", monospace;
-    background: #0a0a0a;
-    color: #00ffcc;
+    font-family: "Segoe UI", monospace;
+    background: radial-gradient(circle at top, #0f1720, #05080c);
+    color: var(--text);
 }
 
+/* HEADER */
 header {
     text-align: center;
-    padding: 30px;
-    background: linear-gradient(90deg, #000, #001f1f);
-    box-shadow: 0 0 20px #00ffcc;
+    padding: 40px 20px;
+    background: linear-gradient(120deg, #05080c, #0f1720);
+    border-bottom: 1px solid var(--accent-soft);
 }
 
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+header p {
+    opacity: 0.7;
+}
+
+/* NAVIGATION */
 nav {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 nav a {
     margin: 10px;
     text-decoration: none;
-    color: #00ffcc;
+    color: var(--accent);
+    position: relative;
+    padding: 5px;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
     transition: 0.3s;
 }
 
-nav a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px #00ffcc;
+nav a:hover::after {
+    width: 100%;
 }
 
+/* BOUTON CV */
 .btn-cv {
-    border: 1px solid #00ffcc;
-    padding: 5px 10px;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    padding: 6px 12px;
+    transition: 0.3s;
 }
 
+.btn-cv:hover {
+    background: var(--accent);
+    color: black;
+}
+
+/* SECTIONS */
 section {
-    padding: 40px;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
 }
 
+h2 {
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+}
+
+/* CARDS */
 .card {
-    background: #111;
-    border: 1px solid #00ffcc;
-    padding: 20px;
-    margin: 20px 0;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: linear-gradient(145deg, #0c141c, #070c12);
+    border: 1px solid var(--accent-soft);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 25px 0;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(0,255,198,0.1), transparent);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #00ffcc;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0,255,198,0.2);
 }
 
+/* ANIMATION */
 .fade-in {
-    animation: fadeIn 1.5s ease-in;
+    animation: fadeUp 1s ease forwards;
+    opacity: 0;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* IMAGES */
+.img-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.img-container img {
+    width: 280px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-soft);
+    transition: 0.3s;
+}
+
+.img-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0,255,198,0.3);
+}
+
+/* FOOTER */
 footer {
     text-align: center;
-    padding: 20px;
-    border-top: 1px solid #00ffcc;
+    padding: 30px;
+    font-size: 0.9rem;
+    opacity: 0.6;
 }
 
 /* =======================
