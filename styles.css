@@ -68,3 +68,24 @@ footer {
     padding: 20px;
     border-top: 1px solid #00ffcc;
 }
+
+/* =======================
+AJOUT CSS POUR IMAGES
+======================= */
+
+.img-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.img-container img {
+    width: 300px;
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 10px #00ffcc;
+    transition: 0.3s;
+}
+
+.img-container img:hover {
+    transform: scale(1.05);
+}
